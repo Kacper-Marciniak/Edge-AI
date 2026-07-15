@@ -1,0 +1,6 @@
+__pycache__/
+.vscode/
+P*/data/
+*.pth
+*.pt
+TEST_*
