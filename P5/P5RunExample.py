@@ -8,12 +8,13 @@ from Code2 import run as run2
 from threading import Thread
 from queue import Queue
 from sense_hat import SenseHat
-import time
+import time, datetime
 import json, os
 
 FILE_PATH = "log.json"
 with open (FILE_PATH, mode="w") as file:
-    file.write( "[{}]".format(json.dumps({"time":time.time(), "event": "EVENT_DEVICE_START"})))
+    curr_time = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+    file.write( "[{}]".format(json.dumps({"time": curr_time, "event": "EVENT_DEVICE_START"})))
 
 sense_hat = SenseHat()
 

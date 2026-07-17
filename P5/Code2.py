@@ -4,7 +4,8 @@ Moduł 2
 
 from sense_hat import SenseHat
 from queue import Queue
-from time import sleep, time
+from time import sleep
+from datetime import datetime
 import numpy as np
 
 BUFFER_SIZE = 5
@@ -19,7 +20,7 @@ def run(thread_name: str, queue: Queue):
 
     while True:
         sleep(1)
-        curr_time = time()
+        curr_time = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
         humidity = hat.get_humidity()
         temperature = hat.get_temperature()
 
