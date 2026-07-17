@@ -1,0 +1,7 @@
+[
+  {"time": "2026-07-16T12:34:00", "level": "ERROR", "message": "Internet connection failure"},
+  {"time": "2026-07-16T12:32:00", "level": "INFO", "message": "User admin logged in"},
+  {"time": "2026-07-16T12:28:00", "level": "WARNING", "message": "High CPU usage"},
+  {"time": "2026-07-16T12:10:00", "level": "INFO", "message": "System updates checked"},
+  {"time": "2026-07-16T11:45:00", "level": "ERROR", "message": "Disk space critically low"}
+]

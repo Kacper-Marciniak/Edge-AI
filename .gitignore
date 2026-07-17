@@ -1,6 +1,9 @@
 __pycache__/
 .vscode/
 P*/data/
+*_local
+*.db
 *.pth
 *.pt
+*.onnx
 TEST_*
