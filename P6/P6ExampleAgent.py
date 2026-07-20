@@ -9,25 +9,22 @@ MODEL_PATH = "./qwen_local/qwen2.5-0.5b-instruct-q4_k_m.gguf"
 print("Loading local model...")
 model = Llama(
     model_path=MODEL_PATH,
-    n_ctx=2048,
+    n_ctx=8192,
     n_threads=4,    
-    n_batch=256,
-    verbose=False
+    temperature=0,
+    verbose=False,
 )
 print("Model ready.")
 
 SYSTEM_PROMPT = """
 You are a local system auditor.
-
 You are generating a technical report for a user.
-
 The report must include:
 - system status
 - total number of events
 - number of INFO/WARNING/ERROR events
 - recent critical events
 - brief conclusions
-
 Do not make up any data.
 Use only the information provided.
 
@@ -75,10 +72,10 @@ Generate report.
 
     response = model.create_chat_completion(
         messages=messages,
-        max_tokens=128,
+        max_tokens=2048,
         temperature=0
     )
-
+    
     answer = response["choices"][0]["message"]["content"]
 
     return answer
