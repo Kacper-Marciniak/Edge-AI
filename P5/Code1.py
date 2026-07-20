@@ -10,9 +10,8 @@ from datetime import datetime
 BRIGHTNESS_THRESH_MIN = 5
 BRIGHTNESS_THRESH_MAX = 50
 
-def run(thread_name: str, queue: Queue):
+def run(hat: SenseHat, queue: Queue):
     
-    hat = SenseHat()    
     hat.color.gain = 4
     hat.color.integration_cycles = 64
 

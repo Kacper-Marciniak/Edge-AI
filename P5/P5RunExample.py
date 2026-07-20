@@ -19,8 +19,8 @@ with open (FILE_PATH, mode="w") as file:
 sense_hat = SenseHat()
 
 queue = Queue()
-thread1 = Thread(target=run1, args=("T1", queue,))
-thread2 = Thread(target=run2, args=("T2", queue,))
+thread1 = Thread(target=run1, args=(sense_hat,queue,))
+thread2 = Thread(target=run2, args=(sense_hat, queue,))
 
 thread1.start()
 thread2.start()

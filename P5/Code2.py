@@ -12,8 +12,7 @@ BUFFER_SIZE = 5
 DELTA_TEMPERATURE = 1.0
 DELTA_HUMIDITY = 1.0
 
-def run(thread_name: str, queue: Queue):
-    hat = SenseHat()
+def run(hat: SenseHat, queue: Queue):
 
     data_buffer_humidity = [hat.get_humidity()*BUFFER_SIZE]
     data_buffer_temperature = [hat.get_temperature()*BUFFER_SIZE]
