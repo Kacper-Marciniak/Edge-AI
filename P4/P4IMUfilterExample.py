@@ -56,27 +56,28 @@ class IMUFilter:
             "yaw": (math.degrees(self.yaw) + 360) % 360
         }
 
+# Przykładowe wykorzystanie
+if __name__ == '__main__':
+    TIME_WAIT = 0.01 # Częstotliwość próbkowania ok. 100Hz
 
+    # Utworzenie instancji SenseHAT
+    sense = SenseHat()
+        
+    # Utworzenie instancji filtra i przesłanie instancji SenseHat
+    imu_filter = IMUFilter(sense)
 
-sense = SenseHat()
-    
-# Utworzenie instancji filtra i przesłanie instancji SenseHat
-imu_filter = IMUFilter(sense)
+    print("Uruchamianie odczytu. Naciśnij Ctrl+C, aby zatrzymać.")
+    try:
+        while True:
+            # Pobranie danych z czujników i filtracja
+            orientation = imu_filter.update()
 
-print("Uruchamianie odczytu. Naciśnij Ctrl+C, aby zatrzymać.")
-    
-try:
-    while True:
-        # Pobranie danych z czujników i filtracja
-        orientation = imu_filter.update()
-
-        # Wyświetlenie stabilnych wyników
-        print(f"Pitch: {orientation['pitch']:5.1f}° | "
+            # Wyświetlenie stabilnych wyników
+            print(f"Pitch: {orientation['pitch']:5.1f}° | "
                   f"Roll: {orientation['roll']:5.1f}° | "
                   f"Yaw (Heading): {orientation['yaw']:5.1f}°")
 
-        # Częstotliwość próbkowania ok. 100Hz
-        time.sleep(0.01)
+            time.sleep(TIME_WAIT)
 
-except KeyboardInterrupt:
-    print("\nZatrzymano.")
+    except KeyboardInterrupt:
+        print("\nZatrzymano.")
