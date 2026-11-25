@@ -13,7 +13,7 @@ import json, os
 
 FILE_PATH = "log.json"
 with open (FILE_PATH, mode="w") as file:
-    curr_time = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+    curr_time = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
     file.write( "[{}]".format(json.dumps({"time": curr_time, "event": "EVENT_DEVICE_START"})))
 
 sense_hat = SenseHat()
